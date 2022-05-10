@@ -87,11 +87,13 @@ h1, h2 {
   padding-top: 2rem;
 }
 
-#prompt_output {
+.prompt_and_response {
   display: grid;
   grid-template-columns: min-content auto;
   gap: 1rem;
   margin: 1rem 0;
+  background-color: lightgrey;
+  padding: 1rem;
 }
 
 .prompt_label, .response_label {
