@@ -1,21 +1,13 @@
+
 const input = document.querySelector('#prompt_input');
 const submitButton = document.querySelector('#prompt_submit');
 const output = document.querySelector('#prompt_output');
 
-let userQuery;
+
+// let userQuery;
+// static for testing
+let userQuery = "I'm a little teapot";
 let aiResponses = [];
-
-
-
-// sample/working draft request
-const data = {
-  // more detailed instructions to the API would go here
-  "prompt": "Take on me",
-  "max_tokens": 20,
-  "temperature": 0,
-  "n": 1,
-  "echo": true,
-}
 
 
 // sample reply based on docs
@@ -26,7 +18,6 @@ const sampleReply = {
   "model": "text-curie-001",
   "choices": [
     {
-      "prompt": "Take on me",
       "text": "Take me on",
       "index": 0,
       "logprobs": null,
@@ -34,29 +25,37 @@ const sampleReply = {
     }
   ]
 }
-// adding echo, but I don't know the exact format until I test the API
 
-// async function fetchReply(data) {
+// this part works
+// async function fetchReply(userQuery) {
+//   const data = {
+//     "prompt": `Provide the next line of a song lyric. ${userQuery}`,
+//     "max_tokens": 42,
+//     "temperature": 0.9,
+//   }
 //   const reply = await fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//     Authorization: `Bearer ${process.env.OPENAI_SECRET}`,
-//   },
-//   body: JSON.stringify(data),
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       // Authorization: `Bearer ${process.env.OPENAI_SECRET}`,
+//       // the above is most common but inside Vite it will probably be:
+//       Authorization: `Bearer ${import.meta.env.VITE_OPENAI_SECRET}`,
+//     },
+//     body: JSON.stringify(data),
 //   });
 //   const aiResponse = await reply.json(); 
-//   addResponse(aiResponse);
+//   console.log(aiResponse);
+//   displayResponses(aiResponse.choices, userQuery);
 // }
 
-
-function displayResponses(aiResponse) {
+// I need to add userQuery to the saved object
+function displayResponses(aiResponse, userQuery) {
   aiResponses.unshift(aiResponse);
   const html = aiResponses.map(
     response => `<div class="prompt_and_response"><p class="prompt_label">Prompt:</p>
-    <p>${response[0].prompt}</p>
+    <p>${userQuery}</p>
     <p class="response_label">Response:</p>
-    <p>${response[0].text}</p></div>`
+    <p class="newline">${response[0].text}</p></div>`
   )
   output.innerHTML = html.join('');
 }
@@ -64,13 +63,15 @@ function displayResponses(aiResponse) {
 function handleSubmit(e) {
   e.preventDefault();
   let userQuery = e.target.form.prompt_input.value;
-  console.log(userQuery);
+  fetchReply(userQuery);
+  e.target.form.reset();
 }
 
 submitButton.addEventListener('click', handleSubmit);
+;
 
-displayResponses(sampleReply.choices);
-displayResponses(sampleReply.choices);
-displayResponses(sampleReply.choices);
+// example text reply I'm getting 
+// "\n\nThat grows in the sun\n\nMy petals are soft\n\nAnd they're proudly"
 
+displayResponses(sampleReply.choices, userQuery);
 console.log(aiResponses);

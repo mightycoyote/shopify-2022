@@ -101,6 +101,10 @@ h1, h2 {
   font-weight: bold;
 }
 
+.newline {
+  white-space: pre-line;
+}
+
 footer {
   text-align: center;
   padding: 1rem;
