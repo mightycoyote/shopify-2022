@@ -57,7 +57,7 @@ h6 {
 
 body {
   font-family: 'Radio Canada', sans-serif;
-  color: #2c3e50;
+  color: hsl(210, 29%, 24%);
   max-width: 800px;
   margin: auto;
   padding: 0 2rem;
@@ -92,7 +92,7 @@ h1, h2 {
   grid-template-columns: min-content auto;
   gap: 1rem;
   margin: 1rem 0;
-  background-color: lightgrey;
+  background-color: hsl(210, 29%, 90%);
   padding: 1rem;
 }
 
