@@ -71,12 +71,22 @@ h1, h2 {
   font-family: 'Bebas Neue', cursive;
 }
 
+h2 {
+  margin-bottom: 1rem;
+}
+
 #prompt_for_api {
   display: flex;
   flex-direction: column;
 }
 
-#prompt_for_api button {
+.optional {
+  font-size: small;
+  font-weight: bold;
+  margin-left: .5rem;
+}
+
+#prompt_submit {
   width: min-content;
   align-self: flex-end;
   margin-top: .5rem;
@@ -91,7 +101,6 @@ h1, h2 {
   display: grid;
   grid-template-columns: min-content auto;
   gap: 1rem;
-  margin: 1rem 0;
   background-color: hsl(210, 29%, 90%);
   padding: 1rem;
 }

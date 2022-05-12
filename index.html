@@ -15,15 +15,17 @@
 
 <body>
   <header>
-    <h1>Fun with AI: Write a song with <a href="https://beta.openai.com/docs/engines/gpt-3">Curie!</a></h1>
+    <h1>Fun with AI</h1>
   </header>
 
-
-  <form id="prompt_for_api">
-    <label for="prompt_input"> Enter your first line:</label>
-    <textarea id="prompt_input" name="prompt_input"></textarea>
-    <button id="prompt_submit" name="prompt_submit">Submit</button>
-  </form>
+  <div>
+    <h2>Write a song with <a href="https://beta.openai.com/docs/engines/gpt-3">Curie!</a></h2>
+    <form id="prompt_for_api">
+      <label for="prompt_input">Enter a lyric: <span class="optional">(optional)</span></label>
+      <textarea id="prompt_input" name="prompt_input"></textarea>
+      <input type="submit" id="prompt_submit" name="prompt_submit" value="Submit">
+    </form>
+  </div>
 
   <div class="responses">
     <h2>Responses</h2>
@@ -32,14 +34,15 @@
       <div class="prompt_and_response">
 
         <p class="prompt_label">Prompt:</p>
-        <p>Provide some hipster ipsum</p>
+        <p>This is a test, this is only a test</p>
 
         <p class="response_label">Response:</p>
-        <p>You probably haven't heard of them DSA viral craft beer. Hella marfa irony, la
-          croix messenger bag poutine DSA gluten-free iPhone slow-carb locavore. Locavore jianbing bespoke yuccie
-          letterpress chillwave humblebrag
-          skateboard. Fam chillwave lomo kitsch ennui hashtag gochujang. Cronut normcore fashion axe, keytar
-          chicharrones messenger bag ugh pok pok XOXO.</p>
+        <p class="newline">
+
+          I'm sick of being someone's someone
+          I'm sick of feeling like I'm not good enough
+          I'm sick of pretending to be happy
+          I'm sick of being someone's someone</p>
 
       </div>
 

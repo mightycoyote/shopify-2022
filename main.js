@@ -25,6 +25,7 @@ const sampleReply = {
 }
 
 async function fetchReply(userQuery) {
+  submitButton.disabled = true;
   const data = {
     "prompt": `Provide the next line of a song lyric. ${userQuery}`,
     "max_tokens": 42,
@@ -40,7 +41,8 @@ async function fetchReply(userQuery) {
     },
     body: JSON.stringify(data),
   });
-  const aiResponse = await reply.json(); 
+  const aiResponse = await reply.json();
+  submitButton.disabled = false;
   aiResponse.choices.userQuery = userQuery;
   console.log(aiResponse);
   displayResponses(aiResponse.choices);
@@ -64,7 +66,7 @@ function handleSubmit(e) {
   e.target.form.reset();
 }
 
-submitButton.addEventListener('click', handleSubmit);
+submitButton.addEventListener('submit', handleSubmit);
 
 
 console.log(aiResponses);
