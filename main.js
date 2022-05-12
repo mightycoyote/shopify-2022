@@ -1,3 +1,4 @@
+import './style.css';
 
 const input = document.querySelector('#prompt_input');
 const submitButton = document.querySelector('#prompt_submit');
