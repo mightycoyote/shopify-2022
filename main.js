@@ -38,7 +38,7 @@ async function fetchReply(userQuery) {
       "Content-Type": "application/json",
       // Authorization: `Bearer ${process.env.OPENAI_SECRET}`,
       // the above is most common but inside Vite it will probably be:
-      Authorization: `Bearer ${import.meta.env.VITE_OPENAI_SECRET}`,
+      Authorization: `Bearer ${import.meta.env.OPENAI_SECRET}`,
     },
     body: JSON.stringify(data),
   });
