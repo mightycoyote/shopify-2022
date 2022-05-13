@@ -36,9 +36,7 @@ async function fetchReply(userQuery) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${process.env.OPENAI_SECRET}`,
-      // the above is most common but inside Vite it will probably be:
-      Authorization: `Bearer ${import.meta.env.OPENAI_SECRET}`,
+      Authorization: `Bearer ${import.meta.env.VITE_OPENAI_SECRET}`,
     },
     body: JSON.stringify(data),
   });
@@ -67,7 +65,7 @@ function handleSubmit(e) {
   e.target.form.reset();
 }
 
-submitButton.addEventListener('submit', handleSubmit);
+submitButton.addEventListener('click', handleSubmit);
 
 
 console.log(aiResponses);
