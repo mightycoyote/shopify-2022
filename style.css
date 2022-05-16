@@ -55,6 +55,7 @@ h6 {
 
 /* custom css begins here */
 
+
 body {
   font-family: 'Radio Canada', sans-serif;
   color: hsl(210, 29%, 24%);
@@ -62,13 +63,26 @@ body {
   margin: auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-rows: 15vh min-content auto 10vh;
+  grid-template-rows: minmax(mincontent, 15vh) min-content auto 10vh;
   gap: 2rem;
   align-items: center;
 }
 
+a {
+  color: hsl(233, 60%, 45%);
+}
+
+a:visited  {
+  color: hsl(275, 43%, 33%);
+}
+
 h1, h2 {
   font-family: 'Bebas Neue', cursive;
+  color: hsl(275, 43%, 33%);
+}
+
+h1 {
+  margin: 1rem 0;
 }
 
 h2 {
@@ -90,6 +104,7 @@ h2 {
   width: min-content;
   align-self: flex-end;
   margin-top: .5rem;
+  color: hsl(275, 43%, 33%);
 }
 
 .responses {
